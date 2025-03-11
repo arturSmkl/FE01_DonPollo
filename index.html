@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Don Pollo">
+  <meta name="description" content="guliguli">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingan Blog</title>
+  <link rel="stylesheet" href="src/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="container-logo">
+        <img src="src/img/DALL·E%202025-03-05%2009.56.50.png" alt="logo" class="logo">
+        <div class="title meow-script-regular">
+          Lingan Blog
+        </div>
+      </div>
+      <ul class="">
+        <li>
+          <a href="#albums">My albums</a>
+        </li>
+        <li>
+          <a href="#news">News</a>
+        </li>
+        <li >
+          <a href="#video">Interview</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="albums">
+      <h1 class="title meow-script-regular">My albums</h1>
+      <article>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Audio player</th>
+          </tr>
+          <tr>
+            <td>GULI GULI</td>
+            <td>2023</td>
+            <td><audio controls><source src="src/aud/guli.mp3" type="audio/mpeg">Nepodporováno.</audio></td>
+          </tr>
+          <tr>
+            <td>quakan</td>
+            <td>2022</td>
+            <td><audio controls><source src="src/aud/quakan.mp3" type="audio/mpeg">Nepodporováno.</audio></td>
+          </tr>
+        </table>
+      </article>
+    </section>
+    <section id="news">
+      <h1 class="meow-script-regular title">News</h1>
+      <div class="article" id="article1">
+        <h2>DON POLLO ARRESTED</h2>
+        <img src="src/img/arrest.jpg" height="168px" alt="Arrested Pollo">
+        <p>FREE DON POLLO, THE KING OF OHIO</p>
+        <button onclick="saveFavorite('article1')">Uložit jako oblíbené</button>
+      </div>
+      <div class="article" id="article2">
+        <h2>#freedonpollo</h2>
+        <img src="src/img/fans.jpg" height="168px "Don alt="Fans">
+        <p>Fans are fighting for Don Pollo</p>
+        <button onclick="saveFavorite('article2')">Uložit jako oblíbené</button>
+      </div>
+      <div class="article" id="article3">
+        <h2>Don Pollo is in hospital</h2>
+        <img src="src/img/hospital.jpg" height="168px" alt="Pollo in hospital">
+        <p>Pollo suffered an injury due to ligma.</p>
+        <button onclick="saveFavorite('article3')">Uložit jako oblíbené</button>
+      </div>
+    </section>
+    <section id="video">
+      <h1 class="title meow-script-regular">Interview</h1>
+        <div class="vid-container">
+          <video controls width="360">
+            <source src="src/vid/sadpollo.mp4" type="video/mp4">
+            Váš prohlížeč nepodporuje přehrávání videa.
+          </video>
+        </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Lingan Blog</p>
+    </footer>
+  </main>
+  <script>
+    function saveFavorite(articleId) {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      if (!favorites.includes(articleId)) {
+        favorites.push(articleId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        alert('Článek byl uložen jako oblíbený!');
+      } else {
+        alert('Tento článek je již uložen mezi oblíbenými.');
+      }
+    }
+  </script>
+
+</body>
+</html>
