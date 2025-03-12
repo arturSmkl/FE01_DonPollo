@@ -96,12 +96,18 @@
   <script>
     function saveFavorite(articleId) {
       let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      let button = document.getElementById(articleId).querySelector('button')
       if (!favorites.includes(articleId)) {
         favorites.push(articleId);
         localStorage.setItem('favorites', JSON.stringify(favorites));
+        button.innerText = 'Odstranit z oblibenych'
         alert('Článek byl uložen jako oblíbený!');
       } else {
-        alert('Tento článek je již uložen mezi oblíbenými.');
+        let index = favorites.indexOf(articleId);
+        favorites.splice(index, 1);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        button.innerText =  'Ulozit do oblibenych'
+        alert('Článek byl odstraněn z oblíbených!');
       }
     }
   </script>
